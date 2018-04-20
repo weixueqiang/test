@@ -12,6 +12,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 
 
 public class CustomRealm extends AuthorizingRealm{
@@ -42,8 +43,9 @@ public class CustomRealm extends AuthorizingRealm{
 //		if(user==null) {
 //			return null;
 //		}
-		String password="123456";
-		return new SimpleAuthenticationInfo(user, password, this.getName());
+		String password="d2165c4dcade9cb126e34955c8c143aa";
+		return new SimpleAuthenticationInfo(user, password, ByteSource.Util.bytes("seat"), this.getName());
+//		return new SimpleAuthenticationInfo(user, password, this.getName());
 	}
  
 	
