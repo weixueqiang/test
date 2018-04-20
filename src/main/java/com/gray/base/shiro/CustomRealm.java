@@ -43,9 +43,9 @@ public class CustomRealm extends AuthorizingRealm{
 //		if(user==null) {
 //			return null;
 //		}
-		String password="d2165c4dcade9cb126e34955c8c143aa";
-		return new SimpleAuthenticationInfo(user, password, ByteSource.Util.bytes("seat"), this.getName());
-//		return new SimpleAuthenticationInfo(user, password, this.getName());
+		String password="zs123";
+//		return new SimpleAuthenticationInfo(user, password, ByteSource.Util.bytes("seat"), this.getName());
+		return new SimpleAuthenticationInfo(user, password, this.getName());
 	}
  
 	
