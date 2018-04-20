@@ -48,7 +48,7 @@
 	       <!--  <property name="rememberMeManager" ref="rememberMeManager" />   -->
        </bean>  
        <bean id="customRealm" class="com.gray.base.shiro.CustomRealm">
-       	<property name="credentialsMatcher" ref="credentialsMatcher"/>
+       	<!-- <property name="credentialsMatcher" ref="credentialsMatcher"/> -->
        </bean>
  <!-- 缓存管理器 -->
 <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
