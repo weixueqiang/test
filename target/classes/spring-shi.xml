@@ -48,6 +48,7 @@
 	       <!--  <property name="rememberMeManager" ref="rememberMeManager" />   -->
        </bean>  
        <bean id="customRealm" class="com.gray.base.shiro.CustomRealm">
+       	<property name="credentialsMatcher" ref="credentialsMatcher"/>
        </bean>
  <!-- 缓存管理器 -->
 <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
@@ -58,7 +59,32 @@
  			<property name="usernameParam" value="username" />
 		<!-- 表单中密码的input名称 -->
 		<property name="passwordParam" value="password" />
+		<property name="rememberMeParam" value="rememberMe" />
  		</bean>
+ 	<!-- rememberMeManager管理器，写cookie，取出cookie生成用户信息 -->
+	<bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+		<property name="cookie" ref="rememberMeCookie" />
+	</bean>
+	<!-- 记住我cookie -->
+	<bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+		<!-- rememberMe是cookie的名字 -->
+		<constructor-arg value="rememberMe" />
+		<!-- 记住我cookie生效时间30天 -->
+		<property name="maxAge" value="2592000" />
+	</bean>
+ <!-- 会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- session的失效时长，单位毫秒 -->
+        <property name="globalSessionTimeout" value="600000"/>
+        <!-- 删除失效的session -->
+        <property name="deleteInvalidSessions" value="true"/>
+    </bean>
+ <!-- 凭证匹配器 -->
+<bean id="credentialsMatcher"
+	class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+	<property name="hashAlgorithmName" value="md5" />
+	<property name="hashIterations" value="1" />
+</bean>
  
        <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->  
         <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  

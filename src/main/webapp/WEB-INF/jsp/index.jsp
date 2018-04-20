@@ -14,6 +14,7 @@
  		<input type="submit" value="tijiao"/>
  	<p><input type="text"  name="code" value="abc"/>
  	<input type="text" id="input" ><input type="button" value="f5" onclick="getCode()"></p>
+ 	<input type="checkbox" name="rememberMe"/>rememberMe
  	</form>
  	
  	<p><a href="${base}/success.do">success.jsp</a></p>
