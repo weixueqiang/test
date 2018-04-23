@@ -7,6 +7,8 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.realm.AuthenticatingRealm;
 
+import com.gray.base.util.Utils;
+
 import redis.clients.jedis.Jedis;
 
 public class RedisRealm extends AuthenticatingRealm{

@@ -27,7 +27,7 @@ public class UserController {
 				throw new IncorrectCredentialsException("密码错误!");
 			} else if (UnknownAccountException.class.getName().equals(shiroLoginFailure)) {
 				throw new UnknownAccountException("帐号不存在!");
-			}else if("code wrong!".equals(shiroLoginFailure)) {
+			}else if("code worong!".equals(shiroLoginFailure)) {
 				throw new RuntimeException("code wrong!");
 			}
 
@@ -80,7 +80,7 @@ public class UserController {
 
 	}
 
-	@ExceptionHandler(value = Exception.class)
+	/*@ExceptionHandler(value = Exception.class)
 	public String error(HttpServletRequest req, Exception e) {
 		if (e instanceof IncorrectCredentialsException) {
 			String msg = e.getMessage();
@@ -92,6 +92,6 @@ public class UserController {
 			req.setAttribute("error", "异常" + e.getMessage());
 		}
 		return "error";
-	}
+	}*/
 
 }
