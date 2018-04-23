@@ -3,7 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gray.user.dao.RoleDao">
-	<insert id="save"  parameterType="com.gray.user.dao.RoleDao"  useGeneratedKeys="true" keyProperty="id">
+	<insert id="save"  parameterType="com.gray.user.entity.Role"  useGeneratedKeys="true" keyProperty="id">
 		insert into role(rolename) values(#{rolename})
 	</insert>
+	
+	<select id="listByUserId" resultType="com.gray.user.entity.Role" parameterType="int">
+	SELECT * FROM role where id in (
+	SELECT role_id FROM user_role where user_id=#{userId})
+	</select>
 </mapper>
