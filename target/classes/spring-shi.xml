@@ -27,6 +27,7 @@
               /jsp/admin.jsp =roles[admin]  
               /logout.do =logout
               /getCode.jsp=anon
+              /success.do=user
               /**=authc  
         </value>  
         </property>  
@@ -48,7 +49,7 @@
 	       <!--  <property name="rememberMeManager" ref="rememberMeManager" />   -->
        </bean>  
        <bean id="customRealm" class="com.gray.base.shiro.CustomRealm">
-       	<!-- <property name="credentialsMatcher" ref="credentialsMatcher"/> -->
+       	<property name="credentialsMatcher" ref="credentialsMatcher"></property> 
        </bean>
  <!-- 缓存管理器 -->
 <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
