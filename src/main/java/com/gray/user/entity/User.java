@@ -5,6 +5,9 @@ import java.util.List;
 
 public class User implements Serializable{
 
+	public User() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", salt=" + salt + ", roles="
