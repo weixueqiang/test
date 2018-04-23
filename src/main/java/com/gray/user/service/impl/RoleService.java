@@ -1,12 +1,10 @@
-package com.gray.user.dao;
+package com.gray.user.service.impl;
 
 import java.util.List;
 
 import com.gray.user.entity.Role;
 
-public interface RoleDao {
+public interface RoleService {
 
-	void save(Role role);
-	
 	List<Role> listByUserId(Integer userId);
 }

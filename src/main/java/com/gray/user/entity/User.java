@@ -18,9 +18,9 @@ public class User implements Serializable{
 	private String username;
 	private String password;
 	private String salt;
-	private List<String> roles;
-	private List<String> menus;
-	private List<String> permissions;
+	private List<Role> roles;
+	private List<Permission> menus;
+	private List<Permission> permissions;
 	
 	public User(Integer id, String username, String password, String salt) {
 		super();
@@ -47,22 +47,22 @@ public class User implements Serializable{
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
-	public List<String> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
-	public void setRoles(List<String> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	public List<String> getMenus() {
+	public List<Permission> getMenus() {
 		return menus;
 	}
-	public void setMenus(List<String> menus) {
+	public void setMenus(List<Permission> menus) {
 		this.menus = menus;
 	}
-	public List<String> getPermissions() {
+	public List<Permission> getPermissions() {
 		return permissions;
 	}
-	public void setPermissions(List<String> permissions) {
+	public void setPermissions(List<Permission> permissions) {
 		this.permissions = permissions;
 	}
 	public static long getSerialversionuid() {
