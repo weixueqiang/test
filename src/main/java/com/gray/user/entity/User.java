@@ -5,8 +5,13 @@ import java.util.List;
 
 public class User implements Serializable{
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", salt=" + salt + ", roles="
+				+ roles + ", menus=" + menus + ", permissions=" + permissions + "]";
+	}
 	private static final long serialVersionUID = 4075604124034928464L;
-	private String id;
+	private Integer id;
 	private String username;
 	private String password;
 	private String salt;
@@ -14,6 +19,13 @@ public class User implements Serializable{
 	private List<String> menus;
 	private List<String> permissions;
 	
+	public User(Integer id, String username, String password, String salt) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.salt = salt;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -53,10 +65,10 @@ public class User implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

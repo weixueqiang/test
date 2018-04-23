@@ -9,14 +9,13 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gray.base.shiro.User;
 
 @Controller
-public class UserController {
+public class LoginController {
 
 	@RequestMapping("login.do")
 	public String login(HttpServletRequest req) {
