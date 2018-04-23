@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.gray.user.controller.UserService;
+import com.gray.user.dao.UserDao;
 import com.gray.user.entity.User;
 
 @Service("userService")
