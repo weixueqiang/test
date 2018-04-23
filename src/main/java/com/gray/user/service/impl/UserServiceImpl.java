@@ -1,6 +1,5 @@
 package com.gray.user.service.impl;
 
-import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
@@ -10,7 +9,7 @@ import com.gray.user.entity.User;
 @Service("userService")
 public class UserServiceImpl implements UserService{
 
-	@Resource
+//	@Resource
 	private UserDao userDao;
 	
 	public User doUserLogin(User user) {
