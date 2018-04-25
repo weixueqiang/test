@@ -2,6 +2,7 @@ package com.gray.user.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 public class User implements Serializable{
 
@@ -19,8 +20,8 @@ public class User implements Serializable{
 	private String password;
 	private String salt;
 	private List<Role> roles;
-	private List<Permission> menus;
-	private List<Permission> permissions;
+	private Set<Permission> menus;
+	private Set<Permission> permissions;
 	
 	public User(Integer id, String username, String password, String salt) {
 		super();
@@ -53,16 +54,16 @@ public class User implements Serializable{
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	public List<Permission> getMenus() {
+	public Set<Permission> getMenus() {
 		return menus;
 	}
-	public void setMenus(List<Permission> menus) {
+	public void setMenus(Set<Permission> menus) {
 		this.menus = menus;
 	}
-	public List<Permission> getPermissions() {
+	public Set<Permission> getPermissions() {
 		return permissions;
 	}
-	public void setPermissions(List<Permission> permissions) {
+	public void setPermissions(Set<Permission> permissions) {
 		this.permissions = permissions;
 	}
 	public static long getSerialversionuid() {

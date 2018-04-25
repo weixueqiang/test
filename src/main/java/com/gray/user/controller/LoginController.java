@@ -64,6 +64,12 @@ public class LoginController {
 		return "eat";
 	}
 
+	
+	
+	
+	
+	
+	
 	@RequestMapping("sleep.do")
 	@RequiresPermissions("sleep:bed")
 	public String sleep(HttpServletRequest req) {

@@ -1,10 +1,10 @@
-package com.gray.user.dao;
+package com.gray.user.service.impl;
 
 import java.util.List;
 
 import com.gray.user.entity.Permission;
 
-public interface PermissionDao {
+public interface PermissionService {
 
 	void save(Permission permission);
 	
