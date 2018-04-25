@@ -1,7 +1,9 @@
 package com.gray.base.shiro;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -15,9 +17,12 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.springframework.util.CollectionUtils;
 
+import com.gray.user.entity.Permission;
 import com.gray.user.entity.Role;
 import com.gray.user.entity.User;
+import com.gray.user.service.impl.PermissionService;
 import com.gray.user.service.impl.RoleService;
 import com.gray.user.service.impl.UserService;
 
@@ -29,19 +34,30 @@ public class CustomRealm extends AuthorizingRealm{
 	
 	@Resource
 	private RoleService roleService;
-	
+	@Resource
+	private PermissionService permissionService;
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection pri) {
 		User user=(User)pri.getPrimaryPrincipal();
 		List<Role> roles = roleService.listByUserId(user.getId());
 		user.setRoles(roles);
-		List<String> menus=new ArrayList<String>();
-		List<String> permissions=new ArrayList<String>();
-		/*menus.add("eat");
-		menus.add("sleep");
-		permissions.add("eat:apple");
-*/
-		
+		Set<String> menus=new HashSet<>();
+		Set<String> permissions=new HashSet<>();
+		if(!CollectionUtils.isEmpty(roles)) {
+			List<Permission> listMenus =new ArrayList<>();
+			List<Permission> listPermissions =new ArrayList<>();
+			for(Role role:roles) {
+				listMenus.addAll(permissionService.listByRoleId(role.getId()));
+				listPermissions.addAll(permissionService.listPermissionByRoleId(role.getId()));
+			}
+			for(Permission permission:listMenus) {
+				menus.add(permission.getName());
+			}
+			for(Permission permission:listPermissions) {
+				permissions.add(permission.getName());
+			}
+			
+		}
 		SimpleAuthorizationInfo saf = new SimpleAuthorizationInfo();
 		saf.addRoles(menus);
 		saf.addStringPermissions(permissions);

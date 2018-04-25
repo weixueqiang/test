@@ -17,10 +17,10 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter{
 		String param = req.getParameter("code");
 		String rememberMe = req.getParameter("rememberMe");
 		System.out.println("rememberMe"+rememberMe);
-		if(param!=null  && code!=null && !param.equals(code)) {
-			req.setAttribute("shiroLoginFailure", "code worong!");
-			return true;
-		}
+//		if(param!=null  && code!=null && !param.equals(code)) {
+//			req.setAttribute("shiroLoginFailure", "code worong!");
+//			return true;
+//		}
 		return super.onAccessDenied(request, response);
 	}
 }
