@@ -10,8 +10,5 @@
  </head>
  <body>
  	<p>信息:${msg}</p>
- 	<a href="${base}/eatApple.do">sleep</a>
- 	<a href="${base}/eatRice.do">sleep</a>
- 	<a href="${base}/eatOrange.do">sleep</a>
  </body>
 </html>

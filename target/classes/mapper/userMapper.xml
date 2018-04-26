@@ -3,10 +3,46 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gray.user.dao.UserDao">
+	<resultMap type="com.gray.user.entity.User" id="withRole">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="salt" property="salt"/>
+		<collection property="roles" ofType="com.gray.user.entity.Role">
+			<id column="roleId" property="id"/>
+			<result column="rolename" property="rolename"/>
+		</collection>
+	</resultMap>
+	
+	<resultMap type="com.gray.user.entity.User" id="RoleAndMenu" extends="withRole">
+		<collection property="menus" ofType="com.gray.user.entity.Permission">
+			<id column="permissionId" property="id"/>
+			<result column="name" property="name"/>
+		</collection>
+	</resultMap>
+	
 	<select id="login" resultType="com.gray.user.entity.User" parameterType="com.gray.user.entity.User">
 		select * from user where username=#{username} 
 	</select>
 	<insert id="save"  parameterType="com.gray.user.entity.User"  useGeneratedKeys="true" keyProperty="id">
 		insert into user(username,password,salt) values(#{username},#{password},#{salt})
 	</insert>
+	
+	<select id="withRoleUser" resultMap="withRole" parameterType="com.gray.user.entity.User">
+	SELECT u.*,r.id roleId,r.rolename FROM `user` u 
+	LEFT JOIN user_role ur on ur.user_id=u.id 
+	left join role r on r.id=ur.role_id 
+	where u.username=#{username}
+	</select>
+	
+	<select id="withRoleAndMenu" resultMap="RoleAndMenu" parameterType="String">
+		SELECT u.*,r.id roleId,r.rolename,j.name,j.permission_id permissionId FROM `user` u 
+		LEFT JOIN user_role ur on ur.user_id=u.id 
+		left join role r on r.id=ur.role_id 
+		LEFT JOIN (SELECT rp.role_id,rp.permission_id,p.`name` from role_permission rp 
+		join permission p on p.id=rp.permission_id 
+		WHERE p.parent_id is null) j on j.role_id=r.id
+		WHERE u.username=#{username}
+	</select>
+	
 </mapper>

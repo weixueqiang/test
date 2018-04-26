@@ -12,8 +12,18 @@
  <h1>welcome:${username}</h1>
  <p>what</p>
  <p>base:${base}</p>
- <r:hasRole name="eat"><a href="${base}/eat.do">eat</a></r:hasRole>
- <r:hasRole name="sleep"><a href="${base}/sleep.do">sleep</a></r:hasRole>
+ <r:hasRole name="eat"><span>EAT</span>
+ <a href="${base}/eatApple.do">apple</a>
+ <a href="${base}/eatRice.do">rice</a>
+ <a href="${base}/eatOrange.do">orange</a>
+ </r:hasRole>
+ <r:hasRole name="sleep"><span>SLEEP</span>
+ <a href="${base}/sleepBedRoom.do">BedRoom</a>
+ <a href="${base}/sleepClassRoom.do">ClassRoom</a>
+ <a href="${base}/sleepVisitRoom.do">VisitRoom</a>
+ </r:hasRole>
+ 
+ 
  <r:hasRole name="run"><p>run</p></r:hasRole>
  
  
