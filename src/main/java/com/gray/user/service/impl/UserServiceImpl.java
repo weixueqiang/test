@@ -30,4 +30,9 @@ public class UserServiceImpl implements UserService{
 		System.out.println(users);
 	}
 
+	@Override
+	public User withRoleUser(User user) {
+		return userDao.withRoleUser(user);
+	}
+
 }

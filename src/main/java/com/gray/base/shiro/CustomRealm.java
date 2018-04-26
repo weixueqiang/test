@@ -39,8 +39,9 @@ public class CustomRealm extends AuthorizingRealm{
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection pri) {
 		User user=(User)pri.getPrimaryPrincipal();
-		List<Role> roles = roleService.listByUserId(user.getId());
-		user.setRoles(roles);
+		List<Role> roles = user.getRoles();
+//		List<Role> roles = roleService.listByUserId(user.getId());
+//		user.setRoles(roles);
 		Set<String> menus=new HashSet<>();
 		Set<String> permissions=new HashSet<>();
 		if(!CollectionUtils.isEmpty(roles)) {
@@ -72,7 +73,8 @@ public class CustomRealm extends AuthorizingRealm{
 		String username=upt.getUsername();
 		User user=new User();
 		user.setUsername(username);
-		user=userService.doUserLogin(user);
+//		user=userService.doUserLogin(user);
+		user=userService.withRoleUser(user);
 		if(user==null) {
 			return null;
 		}
