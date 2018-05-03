@@ -21,7 +21,7 @@
         </property>
         <property name="filterChainDefinitions">  
         <value>  
-              /index.jsp=anon  
+              /index.jsp=anon
               /jsp/success.jsp=anon  
               /jsp/fail.jsp=anon  
               /jsp/user.jsp =roles[user]  
@@ -43,7 +43,7 @@
             <!--  <property name="sessionMode" value="native">  
              </property> -->
               <property name="realm" ref="customRealm" />
-	       <!--  <property name="rememberMeManager" ref="rememberMeManager" />   -->
+	       <property name="rememberMeManager" ref="rememberMeManager" /> 
        </bean>  
        <bean id="customRealm" class="com.gray.base.shiro.CustomRealm">
        	<property name="credentialsMatcher" ref="credentialsMatcher"></property> 
