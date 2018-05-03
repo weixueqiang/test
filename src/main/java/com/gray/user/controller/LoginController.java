@@ -33,7 +33,8 @@ public class LoginController {
 
 		}
 
-		return "index";
+//		return "index";
+		return "loginForm";
 	}
 
 	@RequestMapping("log.do")

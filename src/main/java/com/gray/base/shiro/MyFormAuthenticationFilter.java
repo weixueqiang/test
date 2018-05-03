@@ -15,12 +15,16 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter{
 		HttpSession session = req.getSession();
 		String code= (String) session.getAttribute("code");
 		String param = req.getParameter("code");
+//		String username = req.getParameter("username");
+//		String password = req.getParameter("password");
 		String rememberMe = req.getParameter("rememberMe");
+		String uri=req.getRequestURI();
+		System.out.println("uri: "+uri);
 		System.out.println("rememberMe"+rememberMe);
-//		if(param!=null  && code!=null && !param.equals(code)) {
-//			req.setAttribute("shiroLoginFailure", "code worong!");
-//			return true;
-//		}
+		if(param!=null  && code!=null && !param.equals(code)) {
+			req.setAttribute("shiroLoginFailure", "code worong!");
+			return true;
+		}
 		return super.onAccessDenied(request, response);
 	}
 }
