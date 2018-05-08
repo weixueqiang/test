@@ -42,11 +42,11 @@ public class CustomRealm extends AuthorizingRealm{
 		List<Role> roles = user.getRoles();
 //		List<Role> roles = roleService.listByUserId(user.getId());
 //		user.setRoles(roles);
-		Set<String> menus=new HashSet<>();
-		Set<String> permissions=new HashSet<>();
+		Set<String> menus=new HashSet<String>();
+		Set<String> permissions=new HashSet<String>();
 		if(!CollectionUtils.isEmpty(roles)) {
-			List<Permission> listMenus =new ArrayList<>();
-			List<Permission> listPermissions =new ArrayList<>();
+			List<Permission> listMenus =new ArrayList<Permission>();
+			List<Permission> listPermissions =new ArrayList<Permission>();
 			for(Role role:roles) {
 				listMenus.addAll(permissionService.listByRoleId(role.getId()));
 				listPermissions.addAll(permissionService.listPermissionByRoleId(role.getId()));
