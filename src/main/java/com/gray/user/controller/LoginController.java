@@ -55,7 +55,8 @@ public class LoginController {
 		User user = (User) SecurityUtils.getSubject().getPrincipal();
 		req.setAttribute("username", user.getUsername());
 		System.out.println("code:" + req.getSession().getAttribute("code"));
-		return "success";
+//		return "success";
+		return "first";
 	}
 
 	@RequestMapping("eat.do")
