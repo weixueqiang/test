@@ -1,7 +1,5 @@
 package com.gray.base.util;
 
-
-
 import redis.clients.jedis.Jedis;
 
 public class Utils {
