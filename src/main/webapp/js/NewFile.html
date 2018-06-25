@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<select id="d">
+			<option id="d1">1</option>
+			<option id="d2" class="c2">2</option>
+			<option id="d3">3</option>
+		</select>
+	</div>
+	<div>
+		<select id="d66">
+			<option id="d1">11</option>
+			<option id="d2" class="c2">22</option>
+			<option id="d3">33</option>
+		</select>
+	</div>
+	<input type="button" onclick="f()" value="ceshi" />
+
+<script src="jquery.js"></script>
+<script>
+	function f(){
+		console.log("1");
+	 	/* $("#d2").attr("selected",true); */
+	 	$(".c2").attr("selected",true);
+		/* console.log("2");
+		$("#d2").attr("selected","seleted");  */
+	}
+</script>
+
+</body>
+</html>
