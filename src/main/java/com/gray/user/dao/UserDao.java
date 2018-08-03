@@ -12,4 +12,6 @@ public interface UserDao {
 	User withRoleUser(User user);
 	
 	User withRoleAndMenu(@Param("username") String username);
+	
+	
 }

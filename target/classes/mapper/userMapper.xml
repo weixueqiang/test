@@ -23,8 +23,9 @@
 		</collection>
 	</resultMap>
 	
+	
 	<select id="login" resultType="com.gray.user.entity.User" parameterType="com.gray.user.entity.User">
-		select * from user where username=#{username} 
+		select * from user where username=#{username}
 	</select>
 	<insert id="save"  parameterType="com.gray.user.entity.User"  useGeneratedKeys="true" keyProperty="id">
 		insert into user(username,password,salt) values(#{username},#{password},#{salt})

@@ -24,6 +24,17 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
 		<property name="configLocation" value="classpath:SqlMapConfig.xml"/>
+		  <!-- 配置mybatis分页插件PageHelper -->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <!-- 什么都不配，使用默认的配置 -->
+                        <value></value>
+                    </property>
+                </bean>
+            </array>
+        </property>
 	</bean>
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
   <!-- 	<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  过时-->
