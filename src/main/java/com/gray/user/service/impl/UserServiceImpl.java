@@ -26,8 +26,13 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void save(User user) {
 		userDao.save(user);
-		User users =this.doUserLogin(user);
-		System.out.println(users);
+//		User users =this.doUserLogin(user);
+		User user2 = new User();
+		user2.setUsername("TRAN");
+		user2.setPassword("TRANP");
+		user2.setSalt("TRANS");
+		int i=1/0;
+		userDao.save(user2);
 	}
 
 	@Override

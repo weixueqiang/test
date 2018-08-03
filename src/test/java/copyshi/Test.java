@@ -32,7 +32,7 @@ public class Test {
 		String password="1";
 		Md5Hash md5 = new Md5Hash(password, salt, 1);
 		password=md5.toString();
-		String username = "admin";
+		String username = "adminffff";
 		User user = new User(null, username, md5.toString(), salt);
 		System.out.println(user);
 		userDao.save(user);

@@ -8,7 +8,8 @@
 	</insert>
 	<select id="listByRoleId" resultType="com.gray.user.entity.Permission" parameterType="int"> 
 		SELECT * from permission where id in(
-		SELECT permission_id FROM `role_permission` WHERE role_id=#{roleId}) and parent_id is null
+		SELECT permission_id FROM `role_permission` WHERE role_id=#{roleId})
+		 <!-- and parent_id is null -->
 	</select>
 	<select id="listPermissionByRoleId" resultType="com.gray.user.entity.Permission" parameterType="int"> 
 		SELECT * from permission where id in(
